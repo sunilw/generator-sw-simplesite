@@ -37,26 +37,22 @@ SimplesiteGenerator.prototype.askFor = function askFor() {
 SimplesiteGenerator.prototype.app = function app() {
     this.mkdir('app');
     this.mkdir('app/templates');
+    this.mkdir('js');
+    this.mkdir('css') ;
+    this.mkdir('sass');
 
-
+    // put our templates in place
     this.template('index.html', 'index.html') ;
-    this.template('Gruntfile.js', 'Grunfile.js')
+    this.template('Gruntfile.js', 'Gruntfile.js') ;
+    this.template('config.rb', 'config.rb') ;
+    this.template('site.sass', 'sass/site.sass') ;
+    this.template('_tablet.sass', 'sass/_tablet.sass') ;
+    this.template('_desktop.sass', 'sass/_desktop.sass') ;
     
-
     this.copy('_package.json', 'package.json');
     this.copy('_bower.json', 'bower.json');
 };
 
-
-SimplesiteGenerator.prototype.css = function css() {
-    this.mkdir('css');
-
-};
-
-SimplesiteGenerator.prototype.sass = function sass() {
-    this.mkdir('sass');
-
-};
 
 SimplesiteGenerator.prototype.projectfiles = function projectfiles() {
     this.copy('editorconfig', '.editorconfig');
