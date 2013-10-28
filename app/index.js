@@ -37,6 +37,7 @@ SimplesiteGenerator.prototype.askFor = function askFor() {
 SimplesiteGenerator.prototype.app = function app() {
     this.mkdir('app');
     this.mkdir('app/templates');
+    this.mkdir('img');
     this.mkdir('js');
     this.mkdir('css') ;
     this.mkdir('sass');
