@@ -49,10 +49,10 @@ SimplesiteGenerator.prototype.app = function app() {
     this.template('site.sass', 'sass/site.sass') ;
     this.template('_tablet.sass', 'sass/_tablet.sass') ;
     this.template('_desktop.sass', 'sass/_desktop.sass') ;
-    
+
     this.copy('_package.json', 'package.json');
     this.copy('_bower.json', 'bower.json');
-
+    this.copy('package.json', 'package.json');
 
 };
 
