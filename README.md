@@ -1,29 +1,20 @@
-# generator-simplesite [![Build Status](https://secure.travis-ci.org/sunilw/generator-simplesite.png?branch=master)](https://travis-ci.org/sunilw/generator-simplesite)
+# generator-simplesite
 
 A generator for [Yeoman](http://yeoman.io).
 
-
-## Getting Started
-
-### What is Yeoman?
-
-Trick question. It's not a thing. It's this guy:
-
-![](http://i.imgur.com/JHaAlBJ.png)
-
-
-
 ### simplesite
 
-This generator creates a very simple site project with very few
-frills. Once generated, the site skeleton can be used to build out
-larger projects if you wish. I might even use it for that myself.
+Simple website generator. 
+Provides a grunt task for compiling compass/sass on file save, and connecting to 
+the chrome 'livereload' extension.
 
-But I built it specifically so I could quickly create test cases
-within html/css/sass/js.
+By default, the compass task generates sass debugging symbols for browser 
+extensions like firesass.
 
+This project can be used for scaffolding for test cases or substantial static 
+sites.
 
 ## License
 
-None as of yet.
+Use as you will. Public Domain. Flick me an email if you find it useful.
 
