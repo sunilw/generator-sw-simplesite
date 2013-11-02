@@ -5,9 +5,9 @@ module.exports = function (grunt){
         compass : {
             dist : {
                 options : {
-		    cssDir : 'css',
-		    sassDir : 'sass',
-		    debugInfo : true
+                    cssDir : 'css',
+                    sassDir : 'sass',
+                    debugInfo : true
                 }
             }
         },
@@ -26,9 +26,9 @@ module.exports = function (grunt){
 
     });
 
-    grunt.loadNpmTasks('grunt-contrib-watch') ;
-    grunt.loadNpmTasks('grunt-contrib-connect') ;
-    grunt.loadNpmTasks('grunt-contrib-compass') ;
+    // grunt.loadNpmTasks('grunt-contrib-watch') ;
+    // grunt.loadNpmTasks('grunt-contrib-connect') ;
+    // grunt.loadNpmTasks('grunt-contrib-compass') ;
     grunt.registerTask('default', ['connect','watch'])
 
 } ;
