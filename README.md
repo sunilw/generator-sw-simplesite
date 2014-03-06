@@ -16,5 +16,7 @@ sites.
 
 ## License
 
-Use as you will. Public Domain. Flick me an email if you find it useful.
+MIT license
+https://github.com/sunilw/generator-simplesite/LICENSE-MIT
+
 
