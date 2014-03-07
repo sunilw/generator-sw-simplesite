@@ -1,3 +1,5 @@
+var phpMiddleware = require('connect-php');
+
 module.exports = function (grunt){
 
     grunt.initConfig({
@@ -13,7 +15,32 @@ module.exports = function (grunt){
         },
 
         connect : {
-            uses_defaults : {}
+            uses_defaults : {},
+	    
+	    options: {
+		port: 9000,
+		livereload: 35729,
+		hostname: 'localhost',
+		middleware: function(connect, options) {
+		    var middlewares = [];
+		    var directory = options.directory ||
+			    options.base[options.base.length - 1];
+		    if (!Array.isArray(options.base)) {
+			options.base = [options.base];
+		    }
+
+		    // Here comes the PHP middleware
+		    middlewares.push(phpMiddleware(directory));
+
+		    // Same as in grunt-contrib-connect
+		    options.base.forEach(function(base) {
+			middlewares.push(connect.static(base));
+		    });
+
+		    middlewares.push(connect.directory(directory));
+		    return middlewares;
+		}
+		
         },
 
         watch : {
