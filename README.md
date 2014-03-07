@@ -14,16 +14,22 @@ extensions like firesass.
 This project can be used for scaffolding for test cases or substantial static 
 sites.
 
+
 ## Deps
    
    To get this working, you need node.js and npm installed. 
    You need the following modules:
 
-	  * grunt-contrib-connect
 	  * grunt-contrib-watch
 	  * grunt-contrib-compass
 
 You also need sass and compass installed
+
+## Recent Changes
+
+Project no longer uses the connect task, enabled by 'grunt-contrib-connect'.
+We now use 'grunt-php' and 'grunt-concurrent', to run php as a the server,
+and concurrently watch for changes.
 
 ## License
 
