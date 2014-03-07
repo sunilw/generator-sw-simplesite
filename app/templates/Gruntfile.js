@@ -1,5 +1,3 @@
-var phpMiddleware = require('connect-php');
-
 module.exports = function (grunt){
     grunt.initConfig({
 
@@ -11,13 +9,12 @@ module.exports = function (grunt){
                     debugInfo : true
                 }
             }
-        },
+        },  // ends compass task definitions
 	
 	php :{	    
 	    dist : { 
 		options : {
 		    keepalive : true,
-		    open: true,
 		    port: 9000
 		}
 	    }	    
@@ -29,12 +26,22 @@ module.exports = function (grunt){
             options : {
                 livereload: true
             }
-        }
-    });
+        },  // ends watch task definition
+	
+	concurrent : {	    
+	    target1 :   [ 'php', 'watch'],
+	    options : {
+		logConcurrentOutput : true
+	    }
+	} // ends concurrent
+	
+
+    });  // end task defintions
 
     grunt.loadNpmTasks('grunt-php');
+    grunt.loadNpmTasks('grunt-concurrent');
     grunt.loadNpmTasks('grunt-contrib-watch');    
     grunt.loadNpmTasks('grunt-contrib-compass');   
-     grunt.registerTask('default', ['php', 'watch']) ;
+    grunt.registerTask( 'default' , ['concurrent:target1', 'concurrent:target2'] ) ;
 
 } ;
