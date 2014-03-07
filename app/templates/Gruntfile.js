@@ -15,7 +15,6 @@ module.exports = function (grunt){
 
         connect : {
             uses_defaults : {},
-
 	    options: {
 		port: 9000,
 		livereload: 35729,
@@ -41,7 +40,7 @@ module.exports = function (grunt){
 	    },	    
         },
         watch : {
-            files : ['*.html', 'js/*', 'sass/*', 'css/*'],
+            files : ['*.html',  '*.php',  'js/*', 'sass/*', 'css/*'],
             tasks : ['compass'],
             options : {
                 livereload: true
@@ -50,6 +49,8 @@ module.exports = function (grunt){
 
     });
 
+
+    grunt.loadNpmTasks('grunt-php');
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-contrib-watch');    
     grunt.loadNpmTasks('grunt-contrib-compass');   
