@@ -2,10 +2,20 @@
     "name": "simplesite",
     "version": "0.1.0",
     "author" : "Sunil Williams",
+    "description": "Throw up a site real fast!",
+     "homepage": "https://github.com/sunilw/generator-simplesite",
+    "issues":           "https://github.com/sunilw/generator-simplesite",
 
     "devDependencies": {
         "grunt-contrib-compass" :  "0.6.0",
         "grunt-contrib-watch"   :  "0.5.3",
-        "grunt-contrib-connect" :  "0.5.0"
-    }
+        "grunt-contrib-connect" :  "0.5.0",
+	"grunt-php":  "0.3.2"
+    },
+
+    "licenses": [
+	{
+	    "type": "MIT"
+	}
+    ]
 }
