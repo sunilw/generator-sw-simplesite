@@ -16,14 +16,20 @@ sites.
 
 
 ## Deps
+
+You will need yeoman, grunt and bower.
    
    To get this working, you need node.js and npm installed. 
    You need the following modules:
 
 	  * grunt-contrib-watch
 	  * grunt-contrib-compass
+	  * grunt-php
+	  * grunt-concurrent
 
-You also need sass and compass installed
+
+Bower will automatically install these for you when you run 'yo simplesite'.
+You also need sass and compass installed.
 
 ## Recent Changes
 
