@@ -1,5 +1,5 @@
 {
-    "name"          : "generator-simplesite",
+    "name"          : "generator-sw-simplesite",
     "version"       : "0.1.0",
     "description"   : "A generator for Yeoman",
     "author"        : "Sunil Williams",
