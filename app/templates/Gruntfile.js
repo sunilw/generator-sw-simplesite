@@ -1,47 +1,45 @@
 module.exports = function (grunt){
     grunt.initConfig({
 
-        compass : {
+        sass  : {
             dist : {
                 options : {
-                    cssDir : 'css',
-                    sassDir : 'sass',
-                    debugInfo : true
+                },
+                files : {
+                    'css/site.css' : 'sass/site.sass'
                 }
             }
-        },  // ends compass task definitions
+        },
 	
-	php :{	    
-	    dist : { 
-		options : {
-		    keepalive : true,
-		    port: 9000
-		}
-	    }	    
-	},    	
-
-	watch : {
-            files : ['*.html',  '*.php',  'js/*', 'sass/*', 'css/*'],
-            tasks : ['compass'],
-            options : {
-                livereload: true
+        php :{
+                dist : {
+                    options : {
+                        keepalive : true,
+                        port: 9000
+                    }
             }
-        },  // ends watch task definition
-	
-	concurrent : {	    
-	    target1 :   [ 'php', 'watch'],
-	    options : {
-		logConcurrentOutput : true
-	    }
-	} // ends concurrent
-	
+        }, // ends php task
+
+        watch : {
+            styles  : {
+                files : [ 'sass/*'],
+                tasks : ['sass'],
+                options : {
+                    livereload: true
+                }
+            } // ends watch/styles
+        },
+
+	concurrent : {
+	    target1 : ['php', 'watch']
+	}
 
     });  // end task defintions
 
     grunt.loadNpmTasks('grunt-php');
     grunt.loadNpmTasks('grunt-concurrent');
-    grunt.loadNpmTasks('grunt-contrib-watch');    
-    grunt.loadNpmTasks('grunt-contrib-compass');   
-    grunt.registerTask( 'default' , ['concurrent:target1', 'concurrent:target2'] ) ;
+    grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-sass');
+    grunt.registerTask( 'default' , ['concurrent'] ) ;
 
 } ;

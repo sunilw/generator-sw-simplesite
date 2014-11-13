@@ -17,8 +17,7 @@ var SimplesiteGenerator = module.exports = function SimplesiteGenerator(args, op
 util.inherits(SimplesiteGenerator, yeoman.generators.Base);
 
 SimplesiteGenerator.prototype.askFor = function askFor() {
-    var cb = this.async();
-
+    var cb = this.async() ;
     // have Yeoman greet the user.
     console.log(this.yeoman);
 
@@ -28,31 +27,33 @@ SimplesiteGenerator.prototype.askFor = function askFor() {
     }];
 
     this.prompt(prompts, function (props) {
-        this.someOption = props.someOption;
+        this.siteName = props.siteName;
 
         cb();
     }.bind(this));
 };
 
 SimplesiteGenerator.prototype.app = function app() {
-    this.mkdir('app');
-    this.mkdir('app/templates');
-    this.mkdir('img');
-    this.mkdir('js');
-    this.mkdir('css') ;
-    this.mkdir('sass');
+
+    var siteName = this.siteName ;
+    this.mkdir( siteName +'/app');
+    this.mkdir(siteName +'/app/templates');
+    this.mkdir(siteName + '/img');
+    this.mkdir(siteName +'/js');
+    this.mkdir(siteName +'/css') ;
+    this.mkdir(siteName +'/sass');
 
     // put our templates in place
-    this.template('index.html', 'index.html') ;
-    this.template('Gruntfile.js', 'Gruntfile.js') ;
-    this.template('config.rb', 'config.rb') ;
-    this.template('site.sass', 'sass/site.sass') ;
-    this.template('_tablet.sass', 'sass/_tablet.sass') ;
-    this.template('_desktop.sass', 'sass/_desktop.sass') ;
+    this.template  ('index.html', siteName +'/index.html') ;
+    this.template( 'Gruntfile.js', siteName +'/Gruntfile.js') ;
+    this.template('config.rb', siteName +'/config.rb') ;
+    this.template('site.sass', siteName +'/sass/site.sass') ;
+    this.template('_tablet.sass', siteName + '/sass/_tablet.sass') ;
+    this.template('_desktop.sass', siteName +'/sass/_desktop.sass') ;
 
-    this.copy('_package.json', 'package.json');
-    this.copy('_bower.json', 'bower.json');
-    this.copy('package.json', 'package.json');
+    this.copy('_package.json', siteName +'/package.json');
+    this.copy('_bower.json', siteName +'/bower.json');
+    this.copy('package.json', siteName + '/package.json');
 
 };
 
