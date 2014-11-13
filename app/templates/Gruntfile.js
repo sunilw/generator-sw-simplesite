@@ -10,29 +10,38 @@ module.exports = function (grunt){
                 }
             }
         },
-	
+
         php :{
-                dist : {
-                    options : {
-                        keepalive : true,
-                        port: 9000
-                    }
+            dist : {
+                options : {
+                    keepalive : true,
+                    port: 9000
+                }
             }
         }, // ends php task
 
         watch : {
             styles  : {
                 files : [ 'sass/*'],
-                tasks : ['sass'],
+                tasks : ['sass']
+            }, // ends watch/styles
+            templates : {
+                files : ['*.php', '*.html'],
+                tasks : []
+            },
+
+            reload : {
+                files : ['*/*'],
+                tasks : [],
                 options : {
-                    livereload: true
+                    livereload : true
                 }
-            } // ends watch/styles
+            },
         },
 
-	concurrent : {
-	    target1 : ['php', 'watch']
-	}
+        concurrent : {
+            target1 : ['php', 'watch:styles', 'watch:templates', 'watch:reload']
+        }
 
     });  // end task defintions
 
